@@ -45,21 +45,10 @@
         radial-gradient(1px 1px at 80% 85%, #fff 50%, transparent 51%);
       background-size: 400px 300px;
       animation: drift 60s linear infinite;
-      filter: drop-shadow(0 0 6px rgba(255,255,255,.25));
     }
     @keyframes drift { from { transform: translateY(0); } to { transform: translateY(80px); } }
 
     header{ padding:48px 20px 10px; text-align:center; }
-    .ring{
-      width: 86px; height: 86px; border-radius: 999px;
-      margin: 0 auto 14px;
-      border: 2px solid rgba(215,180,106,.65);
-      box-shadow: 0 0 0 8px rgba(215,180,106,.08), 0 0 30px rgba(215,180,106,.25);
-      position:relative;
-    }
-    .ring:before, .ring:after{ content:""; position:absolute; inset:14px; border-radius:999px; border:1px solid rgba(241,215,154,.35); }
-    .ring:after{ inset:26px; border:1px dashed rgba(241,215,154,.25); opacity:.8; }
-
     h1{
       margin:0;
       font-size: clamp(28px, 5vw, 44px);
@@ -76,25 +65,8 @@
     }
 
     main{ max-width: 980px; margin: 26px auto 70px; padding: 0 18px; }
-    .card{
-      background: var(--panel);
-      border: 1px solid rgba(35,49,79,.8);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      backdrop-filter: blur(10px);
-    }
-    .card-inner{ padding: 24px; }
-    .grid{ display:grid; grid-template-columns: 1.15fr .85fr; gap: 18px; }
-    @media (max-width: 860px){ .grid{grid-template-columns:1fr} }
-    .divider{
-      height:1px;
-      background: linear-gradient(90deg, transparent, rgba(215,180,106,.55), transparent);
-      margin: 16px 0;
-    }
 
     .btn{
-      appearance:none;
       border:1px solid rgba(215,180,106,.65);
       background: linear-gradient(180deg, rgba(215,180,106,.22), rgba(215,180,106,.08));
       color: var(--gold2);
@@ -103,519 +75,113 @@
       border-radius: 14px;
       cursor:pointer;
       width: 100%;
-      transition: transform .08s ease, box-shadow .18s ease, background .2s ease;
-      box-shadow: 0 10px 30px rgba(0,0,0,.35);
-      letter-spacing:.2px;
       font-size: 16px;
+      margin-top: 20px;
     }
-    .btn:hover{
-      box-shadow: 0 14px 34px rgba(0,0,0,.42), 0 0 30px rgba(215,180,106,.12);
-      background: linear-gradient(180deg, rgba(215,180,106,.28), rgba(215,180,106,.10));
-    }
-    .btn:active{ transform: translateY(1px); }
 
-    .note{ color: var(--muted); font-size: 14px; line-height: 1.55; margin-top: 10px; }
-    .reveal{ display:none; animation: fadeIn .45s ease forwards; }
-    @keyframes fadeIn{ from{opacity:0; transform: translateY(8px);} to{opacity:1; transform: translateY(0);} }
-
-    .badge{
-      display:inline-flex; align-items:center; gap:10px;
-      padding: 10px 12px;
-      border-radius: 999px;
-      border:1px solid rgba(215,180,106,.55);
-      background: rgba(10,16,28,.55);
-      color: var(--gold2);
-      font-weight: 700;
-      letter-spacing:.2px;
-      box-shadow: inset 0 0 0 1px rgba(241,215,154,.12);
-    }
-    .badge small{ color: var(--muted); font-weight: 600; letter-spacing:0; }
-    .smallcaps{ font-variant: small-caps; letter-spacing:.5px; }
-
-    .kpi{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin-top: 14px;
-    }
-    @media (max-width: 520px){ .kpi{ grid-template-columns: repeat(2, 1fr); } }
-    .kpi .box{
-      border-radius: 16px;
-      padding: 12px 12px 10px;
-      border:1px solid rgba(35,49,79,.85);
-      background: rgba(5,8,14,.35);
-      text-align:center;
-    }
-    .kpi .num{
-      font-size: 26px;
-      font-weight: 800;
-      color: var(--gold2);
-      text-shadow: 0 0 18px rgba(215,180,106,.18);
-      line-height:1.1;
-    }
-    .kpi .label{
-      margin-top: 6px;
-      font-size: 12px;
-      letter-spacing:.7px;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
+    .hidden { display:none; }
 
     .ticket{
+      margin-top: 30px;
+      padding: 25px;
+      border: 2px solid #d7b46a;
       border-radius: 18px;
-      border: 1px solid rgba(215,180,106,.55);
-      background: linear-gradient(180deg, rgba(10,16,28,.65), rgba(5,8,14,.55));
-      overflow:hidden;
-      position:relative;
-    }
-    .ticket .top{ padding: 18px 18px 12px; }
-    .ticket h2{ margin:0; font-size: 20px; color: var(--gold2); letter-spacing:.2px; }
-    .ticket .meta{ margin-top:8px; color: var(--muted); font-size: 14px; line-height:1.55; }
-    .ticket .strip{
-      height:1px;
-      background: linear-gradient(90deg, transparent, rgba(215,180,106,.65), transparent);
-      margin: 10px 0 0;
-    }
-    .ticket .body{ padding: 14px 18px 16px; display:grid; gap: 10px; }
-    .ticket .row{
-      display:flex; justify-content:space-between; gap: 12px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(35,49,79,.85);
-      background: rgba(7,10,15,.35);
-    }
-    .ticket .row b{ color: var(--ink); font-weight: 700; }
-    .ticket .row span{ color: var(--gold2); font-weight: 800; text-align:right; }
-
-    .spark{
-      position:absolute; inset:-40%;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(241,215,154,.10), transparent 45%),
-        radial-gradient(circle at 70% 55%, rgba(215,180,106,.10), transparent 50%),
-        radial-gradient(circle at 40% 70%, rgba(215,180,106,.08), transparent 55%);
-      filter: blur(6px);
-      transform: rotate(12deg);
-      pointer-events:none;
-      opacity:.7;
+      background: rgba(10,16,28,.6);
     }
 
-    /* Portrait section */
-    .portrait-wrap{ margin-top: 18px; }
     .portrait{
-      width: 100%;
-      border-radius: 18px;
-      border: 1px solid rgba(215,180,106,.45);
-      box-shadow: 0 18px 50px rgba(0,0,0,.45);
-      display:block;
-    }
-    .caption{
-      margin-top: 10px;
-      color: rgba(184,194,221,.9);
-      font-size: 13px;
-      line-height: 1.5;
+      width:100%;
+      margin-top:20px;
+      border-radius:18px;
+      border:1px solid rgba(215,180,106,.45);
     }
 
-    .footer{ text-align:center; color: rgba(184,194,221,.75); font-size: 13px; padding: 24px 16px 40px; }
+    .countdown{
+      margin-top: 20px;
+      font-size: 18px;
+      color: var(--gold2);
+    }
 
-    /* Music status */
-    .musicbar{
-      display:flex;
-      gap: 10px;
-      align-items:center;
-      margin-top: 14px;
-      padding: 12px;
-      border-radius: 16px;
-      border:1px solid rgba(35,49,79,.85);
-      background: rgba(5,8,14,.35);
-    }
-    .pill{
-      flex: 1;
-      color: var(--muted);
+    .footer{
+      text-align:center;
+      color: rgba(184,194,221,.75);
       font-size: 13px;
-      line-height: 1.3;
-      text-align:left;
-    }
-    .mini{
-      width:auto;
-      padding: 10px 12px;
-      border-radius: 12px;
-      font-size: 14px;
+      padding: 24px 16px 40px;
     }
   </style>
 </head>
 
 <body>
-  <div class="stars" aria-hidden="true"></div>
 
-  <header>
-    <div class="ring" aria-hidden="true"></div>
-    <h1>Taylor, my Valentine ❤️</h1>
-    <p class="subtitle">
-      I have a little quest for you. One that ends with music, wonder,
-      and a night we’ll remember.
-    </p>
-  </header>
+<header>
+  <h1>Taylor, my Valentine ❤️</h1>
+  <p class="subtitle">
+    I have a little quest for you. One that ends with music, wonder,
+    and a night we’ll remember.
+  </p>
+</header>
 
-  <main>
-    <section class="card">
-      <div class="card-inner grid">
-        <div>
-          <div class="badge">
-            ✨ <span class="smallcaps">A Gift Revealed</span>
-            <small>when you are ready</small>
-          </div>
+<main>
 
-          <div class="divider"></div>
+  <button class="btn" onclick="reveal()">Reveal My Valentine’s Day Present</button>
 
-          <p style="margin:0; padding: 14px; border-left: 3px solid rgba(215,180,106,.6); background: rgba(5,8,14,.28); border-radius: 14px; color: var(--muted); line-height: 1.55;">
-            “I would rather share one lifetime with you than face all the ages of this world alone.”
-          </p>
+  <div id="gift" class="hidden">
 
-          <div class="musicbar" role="group" aria-label="Music controls">
-            <div class="pill" id="musicStatus">
-              🎶 Music: trying to start… (If your browser blocks autoplay, tap “Play music”.)
-            </div>
-            <button class="btn mini" id="musicBtn" type="button">Play music</button>
-          </div>
-
-          <p class="note">
-            When you click the button below, the secret will be unveiled.
-            (And yes… it’s very <span class="smallcaps">Middle-earth</span>.)
-          </p>
-
-          <button class="btn" id="revealBtn" type="button">Reveal My Valentine’s Day Present</button>
-
-          <div class="reveal" id="revealArea" aria-live="polite">
-            <div class="divider"></div>
-
-            <h2 style="margin:0; color: var(--gold2); font-size: 24px;">
-              Two tickets to a <span class="smallcaps">Lord of the Rings</span> concert 🎻🗡️
-            </h2>
-
-            <p class="note" style="font-size:15px; margin-top:8px;">
-              We’re going to the <b>Fargo Theatre</b> on <b>March 29, 2026</b> at <b>4:00 PM</b>.
-              Consider this your official invitation to an evening of epic music and adventure.
-            </p>
-
-            <div class="kpi" id="countdown">
-              <div class="box"><div class="num" id="dd">—</div><div class="label">Days</div></div>
-              <div class="box"><div class="num" id="hh">—</div><div class="label">Hours</div></div>
-              <div class="box"><div class="num" id="mm">—</div><div class="label">Minutes</div></div>
-              <div class="box"><div class="num" id="ss">—</div><div class="label">Seconds</div></div>
-            </div>
-
-            <div class="portrait-wrap">
-              <img class="portrait" src="lotr-portrait.png" alt="A Middle-earth-inspired portrait of us" />
-              <div class="caption">
-                Our very serious quest portrait. (If this image doesn’t show up, confirm the file is named <b>lotr-portrait.png</b>
-                and is in the same folder as <b>index.html</b>.)
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <aside class="ticket" id="ticketCard">
-          <div class="spark" aria-hidden="true"></div>
-          <div class="top">
-            <h2>Valentine’s Ticket</h2>
-            <div class="meta">
-              Present: <b>Concert Tickets</b><br/>
-              Theme: <span class="smallcaps">The Lord of the Rings</span><br/>
-              Venue: <b>Fargo Theatre</b><br/>
-              City: <b>Fargo</b><br/>
-              Date: <b>March 29, 2026</b> — <b>4:00 PM</b>
-            </div>
-            <div class="strip"></div>
-          </div>
-
-          <div class="body">
-            <div class="row"><b>For</b><span>Taylor ❤️</span></div>
-            <div class="row"><b>From</b><span>Benjamin ❤️</span></div>
-            <div class="row"><b>Dress Code</b><span>Cozy / Date Night</span></div>
-            <div class="row"><b>Quest Objective</b><span>Smile a lot</span></div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <div class="footer">
-      Made with love. If you want, I can add a “Open in Maps” button, a faux ticket QR code, or a little scrolling story intro.
+    <div class="ticket">
+      <h2>🎻 Lord of the Rings Concert 🎻</h2>
+      <p><strong>Venue:</strong> Fargo Theatre</p>
+      <p><strong>Date:</strong> March 29, 2026</p>
+      <p><strong>Time:</strong> 4:00 p.m.</p>
+      <p><strong>Location:</strong> Fargo, North Dakota</p>
+      <p><strong>With:</strong> Benjamin ❤️</p>
     </div>
-  </main>
 
-  <script>
-    // =========================
-    // Event date/time: Mar 29, 2026 @ 4:00 PM local time
-    // Month is 0-based (2 = March)
-    // =========================
-    const eventDate = new Date(2026, 2, 29, 16, 0, 0);
+    <div class="countdown">
+      Countdown to our adventure:
+      <div id="timer"></div>
+    </div>
 
-    // ===== Reveal logic =====
-    const revealBtn = document.getElementById("revealBtn");
-    const revealArea = document.getElementById("revealArea");
+    <img class="portrait" src="lotr-portrait.png" alt="A Middle-earth-inspired portrait of us" />
 
-    revealBtn.addEventListener("click", () => {
-      revealArea.style.display = "block";
-      revealBtn.textContent = "❤️ It’s a date ❤️";
-      revealBtn.disabled = true;
-      revealBtn.style.cursor = "default";
-      revealBtn.style.opacity = "0.95";
-      // Try again to start music on user gesture (helps with autoplay restrictions)
-      startMusic().catch(() => {});
-    });
+  </div>
 
-    // ===== Countdown =====
-    const dd = document.getElementById("dd");
-    const hh = document.getElementById("hh");
-    const mm = document.getElementById("mm");
-    const ss = document.getElementById("ss");
+</main>
 
-    function pad(n){ return String(n).padStart(2, "0"); }
+<div class="footer">
+  Made with love.
+</div>
 
-    function tick(){
-      const now = new Date();
-      let diff = eventDate - now;
+<script>
+const eventDate = new Date(2026, 2, 29, 16, 0, 0);
 
-      if (diff <= 0){
-        dd.textContent = "0";
-        hh.textContent = "00";
-        mm.textContent = "00";
-        ss.textContent = "00";
-        return;
-      }
+function reveal() {
+  document.getElementById("gift").classList.remove("hidden");
+}
 
-      const totalSeconds = Math.floor(diff / 1000);
-      const days = Math.floor(totalSeconds / (3600*24));
-      const hours = Math.floor((totalSeconds % (3600*24)) / 3600);
-      const mins = Math.floor((totalSeconds % 3600) / 60);
-      const secs = totalSeconds % 60;
+function updateCountdown() {
+  const now = new Date();
+  const diff = eventDate - now;
 
-      dd.textContent = String(days);
-      hh.textContent = pad(hours);
-      mm.textContent = pad(mins);
-      ss.textContent = pad(secs);
-    }
+  if (diff <= 0) {
+    document.getElementById("timer").innerHTML = "It’s time! ❤️";
+    return;
+  }
 
-    tick();
-    setInterval(tick, 1000);
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
 
-    // ============================================================
-    // Music: original fantasy-ish intro using Web Audio API
-    // (Not LOTR soundtrack; just a short, original cinematic motif.)
-    // ============================================================
-    const musicBtn = document.getElementById("musicBtn");
-    const musicStatus = document.getElementById("musicStatus");
+  document.getElementById("timer").innerHTML =
+    days + " days " +
+    hours + " hours " +
+    minutes + " minutes " +
+    seconds + " seconds";
+}
 
-    let audioCtx = null;
-    let playing = false;
-    let stopFns = [];
+setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
 
-    function setStatus(text){ musicStatus.textContent = text; }
-
-    function now(){ return audioCtx.currentTime; }
-
-    function makeReverbishDelay(input, wet=0.18, time=0.22, feedback=0.25){
-      const delay = audioCtx.createDelay();
-      delay.delayTime.value = time;
-
-      const fb = audioCtx.createGain();
-      fb.gain.value = feedback;
-      delay.connect(fb);
-      fb.connect(delay);
-
-      const wetGain = audioCtx.createGain();
-      wetGain.gain.value = wet;
-
-      const dryGain = audioCtx.createGain();
-      dryGain.gain.value = 1 - wet;
-
-      input.connect(dryGain);
-      input.connect(delay);
-      delay.connect(wetGain);
-
-      const out = audioCtx.createGain();
-      dryGain.connect(out);
-      wetGain.connect(out);
-      return out;
-    }
-
-    function makePad(freq, startT, dur, gain=0.18){
-      const osc1 = audioCtx.createOscillator();
-      const osc2 = audioCtx.createOscillator();
-      osc1.type = "sine";
-      osc2.type = "triangle";
-      osc1.frequency.value = freq;
-      osc2.frequency.value = freq * 2;
-
-      const g = audioCtx.createGain();
-      g.gain.value = 0.0001;
-
-      // Soft attack and release
-      g.gain.setValueAtTime(0.0001, startT);
-      g.gain.exponentialRampToValueAtTime(gain, startT + 0.9);
-      g.gain.exponentialRampToValueAtTime(0.0001, startT + dur);
-
-      const filter = audioCtx.createBiquadFilter();
-      filter.type = "lowpass";
-      filter.frequency.value = 900;
-
-      osc1.connect(filter);
-      osc2.connect(filter);
-      filter.connect(g);
-
-      const bus = audioCtx.createGain();
-      g.connect(bus);
-
-      osc1.start(startT);
-      osc2.start(startT);
-      osc1.stop(startT + dur + 0.05);
-      osc2.stop(startT + dur + 0.05);
-
-      return bus;
-    }
-
-    function pluck(freq, t, dur=0.6, gain=0.12){
-      const osc = audioCtx.createOscillator();
-      osc.type = "triangle";
-      osc.frequency.setValueAtTime(freq, t);
-
-      const g = audioCtx.createGain();
-      g.gain.setValueAtTime(0.0001, t);
-      g.gain.exponentialRampToValueAtTime(gain, t + 0.02);
-      g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
-
-      const hp = audioCtx.createBiquadFilter();
-      hp.type = "highpass";
-      hp.frequency.value = 120;
-
-      osc.connect(hp);
-      hp.connect(g);
-
-      osc.start(t);
-      osc.stop(t + dur + 0.02);
-
-      return g;
-    }
-
-    async function startMusic(){
-      if (playing) return;
-      if (!audioCtx){
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      }
-
-      // Some browsers create context "suspended" until user gesture:
-      if (audioCtx.state === "suspended") {
-        await audioCtx.resume();
-      }
-
-      const master = audioCtx.createGain();
-      master.gain.value = 0.55;
-
-      const limiter = audioCtx.createDynamicsCompressor();
-      limiter.threshold.value = -18;
-      limiter.knee.value = 24;
-      limiter.ratio.value = 6;
-      limiter.attack.value = 0.01;
-      limiter.release.value = 0.18;
-
-      master.connect(limiter);
-      limiter.connect(audioCtx.destination);
-
-      // Global FX
-      const fxIn = audioCtx.createGain();
-      fxIn.connect(master);
-      const fxOut = makeReverbishDelay(fxIn, 0.22, 0.26, 0.28);
-      fxOut.connect(master);
-
-      const t0 = now() + 0.05;
-
-      // Simple chord progression in D minor-ish
-      // (D, Bb, F, C) as a fantasy vibe, but original.
-      const chords = [
-        [146.83, 174.61, 220.00], // D3 F3 A3
-        [116.54, 146.83, 174.61], // Bb2 D3 F3
-        [174.61, 220.00, 261.63], // F3 A3 C4
-        [130.81, 164.81, 196.00], // C3 E3 G3 (borrowed brightness)
-      ];
-
-      // Pads
-      let timeCursor = t0;
-      const padDur = 3.6;
-      chords.forEach((triad) => {
-        triad.forEach((f) => {
-          const pad = makePad(f, timeCursor, padDur, 0.10);
-          pad.connect(fxIn);
-        });
-        timeCursor += 2.9; // overlapping
-      });
-
-      // Plucked motif (original)
-      const motif = [
-        587.33, 659.25, 698.46, 659.25, 587.33, 523.25, 587.33, 440.00
-      ];
-      let mt = t0 + 0.6;
-      const step = 0.34;
-      motif.concat(motif.slice(0,4)).forEach((f, i) => {
-        const p = pluck(f, mt + i*step, 0.55, 0.09);
-        p.connect(fxIn);
-        p.connect(fxOut);
-      });
-
-      // Auto-stop after ~14 seconds
-      const stopAt = t0 + 14.5;
-      const stopFn = () => {
-        try {
-          master.gain.setTargetAtTime(0.0001, now(), 0.08);
-          setTimeout(() => {
-            // keep context for restart; just stop sound
-            playing = false;
-            setStatus("🎶 Music: paused. (Tap Play music to hear it again.)");
-            musicBtn.textContent = "Play music";
-          }, 250);
-        } catch(e){}
-      };
-
-      stopFns.push(stopFn);
-      playing = true;
-      setStatus("🎶 Music: playing (original intro).");
-      musicBtn.textContent = "Pause";
-
-      // Schedule stop
-      const ms = Math.max(0, (stopAt - now()) * 1000);
-      const timer = setTimeout(stopFn, ms);
-
-      // store cleanup
-      stopFns.push(() => clearTimeout(timer));
-    }
-
-    function stopMusic(){
-      stopFns.forEach(fn => { try{ fn(); } catch(e){} });
-      stopFns = [];
-      if (audioCtx && audioCtx.state === "running") {
-        // leave it running; just stop nodes via master fade
-      }
-      playing = false;
-      setStatus("🎶 Music: paused. (Tap Play music to hear it again.)");
-      musicBtn.textContent = "Play music";
-    }
-
-    musicBtn.addEventListener("click", async () => {
-      try{
-        if (!playing) await startMusic();
-        else stopMusic();
-      } catch(e){
-        setStatus("🎶 Music: couldn’t start automatically. Tap again, or try a different browser.");
-      }
-    });
-
-    // Attempt autoplay on load (may be blocked; button is fallback)
-    window.addEventListener("load", () => {
-      startMusic()
-        .then(() => {})
-        .catch(() => {
-          setStatus("🎶 Music: autoplay blocked by your browser. Tap “Play music”.");
-        });
-    });
-  </script>
 </body>
 </html>
